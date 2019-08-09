@@ -31,15 +31,15 @@ println "[${appName}] (*) grails.config.locations = ${grails.config.locations}"
  *  SKINNING
 \******************************************************************************/
 skin.layout = 'ala'
-skin.orgNameLong = "Atlas of Living Australia"
-skin.orgNameShort = "ALA"
+skin.orgNameLong = "GBIF Benin"
+skin.orgNameShort = "GBIF Benin"
 // whether crumb trail should include a home link that is external to this webabpp - ala.baseUrl is used if true
 skin.includeBaseUrl = true
 skin.taxaLinks.baseUrl = "https://bie.ala.org.au/species/"
 skin.headerUrl = "classpath:resources/generic-header.jsp" // can be external URL
 skin.footerUrl = "classpath:resources/generic-footer.jsp" // can be external URL
 skin.fluidLayout = true // true or false
-skin.exploreUrl = "https://www.ala.org.au/explore-by-location/"
+skin.exploreUrl = "https://recherche.gbifbenin.org/explore-by-location/"
 
 /******************************************************************************\
  *  EXTERNAL SERVERS
@@ -54,21 +54,26 @@ skin.exploreUrl = "https://www.ala.org.au/explore-by-location/"
  *
  *  NOTE: Some of these will be ignored if default_config exists
 \******************************************************************************/
-grails.serverURL = 'https://biocache.ala.org.au'
-serverName = 'https://biocache.ala.org.au'
-security.cas.appServerName = "https://biocache.ala.org.au"
-security.cas.casServerName = 'https://auth.ala.org.au'
-security.cas.loginUrl = 'https://auth.ala.org.au/cas/login'
-security.cas.logoutUrl = 'https://auth.ala.org.au/cas/logout'
-security.cas.casServerUrlPrefix = 'https://auth.ala.org.au/cas'
-security.cas.bypass = false // set to true for non-ALA deployment
-auth.admin_role = "ROLE_ADMIN"
+grails.serverURL = 'http://recherche.gbifbenin.org'
+serverName = 'http://recherche.gbifbenin.org'
+security.cas.bypass = true // set to true for non-ALA deployment
+security.cas.appServerName = 'http://auth.ala.org.au'
+security.cas.service= 'http://auth.ala.org.au'
+
+biocache.baseUrl='http://recherche-ws.gbif.fr'
 
 skin.fluidLayout = true
-skin.useAlaSpatialPortal = true
-skin.useAlaBie = true
-skin.taxaLinks.baseUrl = "https://bie.ala.org.au/species/" // 3rd party species pages. Leave blank for no links
-test.var = "ala-hub"
+skin.useAlaSpatialPortal = false
+skin.useAlaBie = false
+skin.taxaLinks.baseUrl =  // 3rd party species pages. Leave blank for no links
+test.var = "gbifbenin-hub"
+headerAndFooter.baseURL= "http://layout.gbifbenin.org"
+
+biocache.queryContext = "data_hub_uid:dh0"
+
+collectory.baseUrl="http://metadonnees.gbif.fr"
+collections.baseUrl="http://metadonnees.gbif.fr"
+collectory.resources="http://metadonnees.gbif.fr/public/resources.json"
 
 // facets.includeDynamicFacets = true // for sandbox
 
@@ -142,8 +147,8 @@ grails.hibernate.cache.queries = false
 
 environments {
     development {
-        serverName = 'http://dev.ala.org.au:8080'
-        grails.serverURL = 'http://dev.ala.org.au:8080/' + appName
+        serverName = 'http://127.0.0.1:8080'
+        grails.serverURL = 'http://127.0.0.1:8080/' + appName
 //        security.cas.appServerName = serverName
 //        security.cas.contextPath = "/${appName}"
           //grails.resources.debug = true // cache & resources plugins
@@ -158,8 +163,8 @@ environments {
 
     }
     production {
-//        grails.serverURL = 'https://biocache.ala.org.au'
-//        serverName='https://biocache.ala.org.au'
+        grails.serverURL = 'https://recherche.gbifbenin.org'
+        serverName='https://recherche.gbifbenin.org'
 //        security.cas.appServerName = serverName
 //        security.cas.contextPath = ""
     }

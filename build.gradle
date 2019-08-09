@@ -15,8 +15,8 @@ plugins {
     id "com.gorylenko.gradle-git-properties" version "1.4.17"
 }
 
-version "3.0.9"
-group "au.org.ala"
+version "1.0.3"
+group "bj.gbif.portail"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
@@ -24,8 +24,8 @@ apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"org.grails.grails-gsp"
 apply plugin:"asset-pipeline"
-
-apply from: 'https://raw.githubusercontent.com/AtlasOfLivingAustralia/travis-build-configuration/master/travis_grails_publish.gradle'
+//
+//apply from: 'https://raw.githubusercontent.com/AtlasOfLivingAustralia/travis-build-configuration/master/travis_grails_publish.gradle'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -94,6 +94,7 @@ dependencies {
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 
     // Jars
+    //compile 'org.apache.httpcomponents:httpclient:4.3.3>'
     compile "org.apache.httpcomponents:httpclient:4.5.6"
     compile 'xml-apis:xml-apis:1.4.01' // really?
 
@@ -102,11 +103,11 @@ dependencies {
     compile "org.grails.plugins:ala-auth:3.0.2", noCache
 
     if(!inplace) {
-        runtime "au.org.ala.plugins.grails:biocache-hubs:2.0.7", noCache
-        runtime "au.org.ala.plugins.grails:downloads-plugin:2.0.6", noCache
+        runtime "au.org.ala.plugins.grails:biocache-hubs:2.0.5", noCache
+        runtime "au.org.ala.plugins.grails:downloads-plugin:2.0.3", noCache
     }
 
-    runtime "org.grails.plugins:ala-bootstrap3:3.0.6", noCache
+    runtime "org.grails.plugins:ala-bootstrap3:3.0.4", noCache
 }
 
 bootRun {

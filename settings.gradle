@@ -1,8 +1,8 @@
-rootProject.name='ala-hub'
+rootProject.name='gbifbenin-hub'
 
 // Inplace plugin config
 // Set to true it needed only for development
-boolean inplace = false
+boolean inplace = true
 
 if (inplace) {
     include ':ala-charts-plugin'
@@ -11,8 +11,8 @@ if (inplace) {
 //    project(':images-client-plugin').projectDir = new File(settingsDir,'../images-client-plugin')
     include ':downloads-plugin'
     project(':downloads-plugin').projectDir = new File(settingsDir,'../downloads-plugin')
-//    include ':ala-bootstrap3'
-//    project(':ala-bootstrap3').projectDir = new File(settingsDir,'../ala-bootstrap3')
+    include ':ala-bootstrap3'
+    project(':ala-bootstrap3').projectDir = new File(settingsDir,'../ala-bootstrap3')
     include ':biocache-hubs'
     project(':biocache-hubs').projectDir = new File(settingsDir,'../biocache-hubs')
 
@@ -20,5 +20,5 @@ if (inplace) {
 //    project(':ala-ws-plugin').projectDir = new File(settingsDir,'../ala-ws-plugin')
 
 }
-rootProject.name = 'ala-hub'
+rootProject.name = 'gbifbenin-hub'
 
